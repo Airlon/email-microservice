@@ -1,0 +1,21 @@
+mp:
+  messaging:
+    outgoing:
+      qu.backoffice.sendemail:
+        connector: smallrye-rabbitmq
+        exchange:
+          name: qu.sendemail
+
+quarkus:
+
+  swagger-ui:
+    always-include: true
+  http:
+    root-path: /${project.artifactId}
+
+  application:
+    name: @project.artifactId@ # nome da aplicação será usando para definir o repositório de configura para o config-server
+
+  spring-cloud-config:
+    enabled: true # conexão com o config-server está disabilitado por padrão
+    url: http://localhost:3000/backoffice-spring-config/
